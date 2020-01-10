@@ -1,0 +1,70 @@
+<!-- view元素，类似于div元素 -->
+<view>hello,world!</view>
+
+<!-- 绑定数据，用 {{paramName}} 获取js中的data中的同名参数数据 -->
+<view class="className" data-name="{{theName}}">
+  hello,china!
+  <view>
+    hello,xx!
+  </view>
+</view>
+
+
+<view>
+  <text>{{message}}</text>
+</view>
+
+<!-- 表达式绑定 -->
+<view hidden="{{flag ? true : false}}">
+  Hidden
+</view>
+
+<!-- 遍历数组 -->
+<view>
+  <!-- block只是一个包装元素，在页面渲染时并不生效 -->
+  <block wx:for="{{items}}" wx:for-item="item" wx:key="index">
+    <view>
+      {{index}}:{{item.name}}
+    </view>
+  </block>
+</view>
+
+
+<!-- 条件渲染 -->
+<!-- 一般把静态样式写入class中，把动态样式写入style中 -->
+<view style="width:500rpx;height:100rpx;background-color:pink">今天吃什么？ {{condition}} </view>
+<view wx:if="{{condition === 1}}">
+  饺子
+</view>
+<view wx:elif="{{condition == 2}}">
+  米饭
+</view>
+<view wx:else>
+  面食
+</view>
+
+
+<template name="tempItem">
+  <view>
+    <view>收件人：{{name}}</view>
+    <view>联系方式：{{phone}}</view>
+    <view>地址：{{address}}</view>
+  </view>
+</template>
+
+<template is="tempItem" data="{{...item}}"></template>
+
+<!-- import 只能引用模板内容块，有作用域概念，不支持嵌套引用 -->
+<import src="template.wxml"></import>
+<template is="a"></template>
+
+<!-- inclde 是把除模板内容外所有元素拷贝过来 -->
+
+<!-- 插件关系 -->
+
+
+<web-view src="http://ty.packbi.com" />
+
+
+
+

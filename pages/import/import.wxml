@@ -1,0 +1,4 @@
+<!--pages/import.wxml-->
+
+<import src="a.wxml"></import>
+<template is="a"></template>
